@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="menu_Language">Language</v:String>
+    <v:String x:Key="menu_Program">Program</v:String>
+    <v:String x:Key="menu_Help">Help</v:String>
+    
+    <v:String x:Key="slideMenu_Caesar">Caesar cipher</v:String>
+    <v:String x:Key="slideMenu_Polybius">Polybius square</v:String>
+    <v:String x:Key="slideMenu_Vigenere">Vigenere cipher</v:String>
+
+    <v:String x:Key="main_Input">Input: </v:String>
+    <v:String x:Key="main_Output">Output:</v:String>
+    <v:String x:Key="main_Key">Key:</v:String>
+    <v:String x:Key="main_Start">Start</v:String>
+    <v:String x:Key="main_Methot_1">Methot 1</v:String>
+    <v:String x:Key="main_Methot_2">Methot 2</v:String>
+    <v:String x:Key="main_Encrypt">Encrypt</v:String>
+    <v:String x:Key="main_Decrypt">Decrypt</v:String>
+    <v:String x:Key="main_Eng">English</v:String>
+    <v:String x:Key="main_Ru">Russian</v:String>
+</ResourceDictionary>

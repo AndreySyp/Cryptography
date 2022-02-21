@@ -1,0 +1,77 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate x:Key="SlideMenuBtn" TargetType="Button">
+        <Grid Name="Btn" Height="45">
+            <Border>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="{TemplateBinding Content}" Margin="10,0,0,0"
+                               Background="Transparent" FontSize="14" 
+                               VerticalAlignment="Center">
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="#426151"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}" 
+                                                     Value="true">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor,
+                                            AncestorType={x:Type Button}},
+                                            Path = IsFocused}" Value="true">
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                </StackPanel>
+            </Border>
+            <Border Name="MouseOverBorder" Background="#002b15">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Opacity" Value="0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}" 
+                                                     Value="true">
+                                <Setter Property="Opacity" Value="0.1"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+            <Border Name="IsSelectedBorder" Background="#002b15">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Opacity" Value="0"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor,
+                                            AncestorType={x:Type Button}},
+                                            Path = IsFocused}" Value="true">
+                                <Setter Property="Opacity" Value="0.1"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+            <Border Name="IsSelectedBorder2" Background="Transparent">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Visibility" Value="Hidden"/>
+                        <Setter Property="BorderThickness" Value="3,0,0,0"/>
+                        <Setter Property="BorderBrush" Value="#091f03"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor,
+                                            AncestorType={x:Type Button}},
+                                            Path = IsFocused}" Value="true">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>
