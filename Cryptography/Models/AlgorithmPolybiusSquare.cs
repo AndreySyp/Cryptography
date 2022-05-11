@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cryptography.Models
 {
@@ -11,6 +7,12 @@ namespace Cryptography.Models
         private readonly int method;
         private readonly string alphabet;
         private int size;
+
+        public AlgorithmPolybiusSquare(string alphabet, int method)
+        {
+            this.alphabet = alphabet;
+            this.method = method;
+        }
 
         private char[,] GetSquare(string key)
         {
@@ -35,7 +37,7 @@ namespace Cryptography.Models
 
             return square;
         }
-        private bool FindSymbol(char[,] symbolsTable, char symbol, ref int column, ref int row)
+        private bool FindSymbol(char[,] symbolsTable, char symbol, out int column, out int row)
         {
             for (int i = 0; i < size; i++)
             {
@@ -55,13 +57,6 @@ namespace Cryptography.Models
             return false;
         }
 
-
-        public AlgorithmPolybiusSquare(string alphabet, int method)
-        {
-            this.alphabet = alphabet;
-            this.method = method;
-        }
-
         public string Encrypt(string text, string key)
         {
             text = text.ToLower();
@@ -73,10 +68,9 @@ namespace Cryptography.Models
                 case 1:
                     for (int i = 0; i < text.Length; i++)
                     {
-                        int columnIndex = 0, rowIndex = 0;
                         int newRowIndex;
 
-                        if (FindSymbol(square, text[i], ref columnIndex, ref rowIndex))
+                        if (FindSymbol(square, text[i], out int columnIndex, out int rowIndex))
                         {
                             if (rowIndex == size - 1) newRowIndex = 0;
                             else newRowIndex = rowIndex + 1;
@@ -90,9 +84,7 @@ namespace Cryptography.Models
 
                     for (int i = 0; i < text.Length; i++)
                     {
-                        int columnIndex = 0, rowIndex = 0;
-
-                        if (FindSymbol(square, text[i], ref columnIndex, ref rowIndex))
+                        if (FindSymbol(square, text[i], out int columnIndex, out int rowIndex))
                         {
                             coordinates[i] = columnIndex;
                             coordinates[i + text.Length] = rowIndex;
@@ -102,8 +94,6 @@ namespace Cryptography.Models
                         outText += square[coordinates[i + 1], coordinates[i]];
                     break;
             }
-
-
             return outText;
         }
         public string Decrypt(string text, string key)
@@ -117,10 +107,9 @@ namespace Cryptography.Models
                 case 1:
                     for (int i = 0; i < text.Length; i++)
                     {
-                        int columnIndex = 0, rowIndex = 0;
                         int newRowIndex;
 
-                        if (FindSymbol(square, text[i], ref columnIndex, ref rowIndex))
+                        if (FindSymbol(square, text[i], out int columnIndex, out int rowIndex))
                         {
                             if (rowIndex == 0) newRowIndex = size - 1;
                             else newRowIndex = rowIndex - 1;
@@ -135,8 +124,7 @@ namespace Cryptography.Models
 
                     for (int i = 0; i < text.Length; i++)
                     {
-                        int columnIndex = 0, rowIndex = 0;
-                        if (FindSymbol(square, text[i], ref columnIndex, ref rowIndex))
+                        if (FindSymbol(square, text[i], out int columnIndex, out int rowIndex))
                         {
                             coordinates[j] = columnIndex;
                             coordinates[j + 1] = rowIndex;
@@ -147,9 +135,15 @@ namespace Cryptography.Models
                         outText += square[coordinates[i + text.Length], coordinates[i]];
                     break;
             }
-
             return outText;
+        }
+        public string GenerateKey()
+        {
+            Random rnd = new();
+            System.Text.StringBuilder key = new();
+            for (int i = 0; i < rnd.Next(3, 10); i++)
+                key.Append(alphabet[rnd.Next(alphabet.Length)]);
+            return key.ToString();
         }
     }
 }
-

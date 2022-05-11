@@ -1,10 +1,8 @@
 ﻿using Cryptography.ViewModels.Base;
+using Cryptography.Views.Windows;
 using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Cryptography.Views.Windows;
-using System.Windows;
 
 namespace Cryptography.ViewModels
 {
@@ -12,20 +10,26 @@ namespace Cryptography.ViewModels
     {
         #region Pages
 
-        private readonly Page Caesar = new Caesar();
-        private readonly Page PolybiusSquare = new PolybiusSquare();
-        private readonly Page Vigenere = new Vigenere();
-
         public Page _CurrentPage;
-
         public Page CurrentPage
         {
             get => _CurrentPage;
             set => Set(ref _CurrentPage, value);
         }
-        public ICommand MenuCaesar_Click => new RelayCommand(() => CurrentPage = Caesar);
+
+        private readonly Page PolybiusSquare = new PolybiusSquare();
+        private readonly Page Vigenere = new Vigenere();
+        private readonly Page Feistel = new Feistel();
+        private readonly Page ElGamal = new ElGamal();
+        private readonly Page Caesar = new Caesar();
+        private readonly Page Shamir = new Shamir();
+
         public ICommand MenuPolybiusSquare_Click => new RelayCommand(() => CurrentPage = PolybiusSquare);
+        public ICommand MenuCaesar_Click => new RelayCommand(() => CurrentPage = Caesar);
         public ICommand Vigenere_Click => new RelayCommand(() => CurrentPage = Vigenere);
+        public ICommand Feistel_Click => new RelayCommand(() => CurrentPage = Feistel);
+        public ICommand ElGamal_Click => new RelayCommand(() => CurrentPage = ElGamal);
+        public ICommand Shamir_Click => new RelayCommand(() => CurrentPage = Shamir);
 
         #endregion
 

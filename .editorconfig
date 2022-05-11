@@ -1,0 +1,19 @@
+﻿[*.cs]
+
+# CA1305: Укажите IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# IDE0011: Добавить фигурные скобки
+dotnet_diagnostic.IDE0011.severity = none
+
+# CA1304: Укажите CultureInfo
+dotnet_diagnostic.CA1304.severity = none
+
+# IDE0058: Значение выражения никогда не используется
+dotnet_diagnostic.IDE0058.severity = none
+
+# IDE0010: Добавить отсутствующие варианты
+dotnet_diagnostic.IDE0010.severity = none
+
+# IDE0022: Использовать тело блока для методов
+dotnet_diagnostic.IDE0022.severity = none

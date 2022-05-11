@@ -4,19 +4,37 @@
     <v:String x:Key="menu_Language">Language</v:String>
     <v:String x:Key="menu_Program">Program</v:String>
     <v:String x:Key="menu_Help">Help</v:String>
-    
-    <v:String x:Key="slideMenu_Caesar">Caesar cipher</v:String>
+
+    <v:String x:Key="slideMenu_ElGamal">ElGamal encryption</v:String>
     <v:String x:Key="slideMenu_Polybius">Polybius square</v:String>
     <v:String x:Key="slideMenu_Vigenere">Vigenere cipher</v:String>
+    <v:String x:Key="slideMenu_Feistel">Feistel cipher</v:String>
+    <v:String x:Key="slideMenu_Shamir">Shamir Protocol</v:String>
+    <v:String x:Key="slideMenu_Caesar">Caesar cipher</v:String>
 
-    <v:String x:Key="main_Input">Input: </v:String>
-    <v:String x:Key="main_Output">Output:</v:String>
-    <v:String x:Key="main_Key">Key:</v:String>
-    <v:String x:Key="main_Start">Start</v:String>
-    <v:String x:Key="main_Methot_1">Methot 1</v:String>
-    <v:String x:Key="main_Methot_2">Methot 2</v:String>
-    <v:String x:Key="main_Encrypt">Encrypt</v:String>
-    <v:String x:Key="main_Decrypt">Decrypt</v:String>
-    <v:String x:Key="main_Eng">English</v:String>
-    <v:String x:Key="main_Ru">Russian</v:String>
+    <v:String x:Key="pageCode_Methot_1">Methot 1</v:String>
+    <v:String x:Key="pageCode_Methot_2">Methot 2</v:String>
+    <v:String x:Key="pageCode_Encrypt">Encrypt</v:String>
+    <v:String x:Key="pageCode_Decrypt">Decrypt</v:String>
+    <v:String x:Key="pageCode_Output">Output</v:String>
+    <v:String x:Key="pageCode_Rounds">Rounds</v:String>
+    <v:String x:Key="pageCode_Input">Input</v:String>
+    <v:String x:Key="pageCode_Start">Start</v:String>
+    <v:String x:Key="pageCode_Eng">English</v:String>
+    <v:String x:Key="pageCode_Ru">Russian</v:String>
+    <v:String x:Key="pageCode_Key">Key:</v:String>
+
+    <v:String x:Key="pageCode_dA">dA:</v:String>
+    <v:String x:Key="pageCode_cA">cA:</v:String>
+    <v:String x:Key="pageCode_dB">dB:</v:String>
+    <v:String x:Key="pageCode_cB">cB:</v:String>
+    <v:String x:Key="pageCode_X">x:</v:String>
+    <v:String x:Key="pageCode_G">g:</v:String>
+    <v:String x:Key="pageCode_Y">y:</v:String>
+    <v:String x:Key="pageCode_X1">X1</v:String>
+    <v:String x:Key="pageCode_X2">X2</v:String>
+    <v:String x:Key="pageCode_X3">X3</v:String>
+    <v:String x:Key="pageCode_X4">X4</v:String>
+    <v:String x:Key="pageCode_P">p:</v:String>
+    <v:String x:Key="pageCode_A">a:</v:String>
 </ResourceDictionary>

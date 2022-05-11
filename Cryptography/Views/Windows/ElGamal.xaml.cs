@@ -1,43 +1,37 @@
-﻿using Cryptography.Infrastructure.Commands;
-using Cryptography.Models;
+﻿using Cryptography.Models;
+using Cryptography.Infrastructure.Commands;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Cryptography.Views.Windows
 {
-    public partial class Caesar : Page
+    public partial class ElGamal : Page
     {
-        private string alphabet;
         private bool isEncrypted;
 
-        public Caesar()
+        public ElGamal()
         {
             InitializeComponent();
         }
 
         private void In_Click(object sender, RoutedEventArgs e)
         {
-            AlgorithmCasaer cs = new(alphabet);
+            VerificationGenerationKey.GenerateKey(out long p, InputP, AdditionalFunctions.GenerateSimpleNumber, AdditionalFunctions.IsPrime);
+            VerificationGenerationKey.GenerateKey(p, out long g, InputG, AlgorithmElGamal.GenerateKey, (long num, long p) => { return num > p; });
+            VerificationGenerationKey.GenerateKey(p, out long x, InputX, AlgorithmElGamal.GenerateKey, (long num, long p) => { return num > p; });
+            long.TryParse(InputA.Text.ToString(), out long a);
+            long y = AdditionalFunctions.PMC(g, x, p);
+
+            AlgorithmElGamal f = new(p, g, x, y);
 
             string text = InputText.Text.ToString();
-            VerificationGenerationKey.GenerateKey(out long key, InputKey, cs.GenerateKey, (long num) => { return true; });
+            OutputText.Text = isEncrypted ? f.Encrypt(text, out a) : f.Decrypt(text, a);
 
-            OutputText.Text = isEncrypted ? cs.Encrypt(text, (int)key) : cs.Decrypt(text, (int)key);
+            InputY.Text = y.ToString();
+            InputA.Text = a.ToString();
         }
 
-        private void Language_Selected(object sender, RoutedEventArgs e)
-        {
-            switch (((ComboBoxItem)((ComboBox)sender).SelectedItem).Name)
-            {
-                case "Eng":
-                    alphabet = "abcdefghijklmnopqrstuvwxyz";
-                    break;
-                case "Ru":
-                    alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
-                    break;
-            }
-        }
         private void Code_Checked(object sender, RoutedEventArgs e)
         {
             switch (((RadioButton)sender).Name)

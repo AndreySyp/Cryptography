@@ -1,29 +1,16 @@
-﻿using Cryptography.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cryptography.Infrastructure.Commands;
+using Cryptography.Models;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Cryptography.Views.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для PolybiusSquare1.xaml
-    /// </summary>
     public partial class PolybiusSquare : Page
     {
-        string alphabet;
-        bool isEncrypted;
-        int method;
+        private string alphabet;
+        private bool isEncrypted;
+        private int method;
         public PolybiusSquare()
         {
             InitializeComponent();
@@ -33,17 +20,15 @@ namespace Cryptography.Views.Windows
         {
             AlgorithmPolybiusSquare ps = new(alphabet, method);
 
-            OutputText.Text = isEncrypted
-                ? ps.Encrypt(InputText.Text.ToString(), InputKey.Text.ToString())
-                : ps.Decrypt(InputText.Text.ToString(), InputKey.Text.ToString());
-        }
+            string text = InputText.Text.ToString();
+            VerificationGenerationKey.GenerateKey(out string key, InputKey, ps.GenerateKey, (string num) => { return true; });
 
+            OutputText.Text = isEncrypted ? ps.Encrypt(text, key) : ps.Decrypt(text, key);
+        }
 
         private void Language_Selected(object sender, RoutedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            switch (selectedItem.Name)
+            switch (((ComboBoxItem)((ComboBox)sender).SelectedItem).Name)
             {
                 case "Eng":
                     alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -55,8 +40,7 @@ namespace Cryptography.Views.Windows
         }
         private void Code_Checked(object sender, RoutedEventArgs e)
         {
-            RadioButton pressed = (RadioButton)sender;
-            switch (pressed.Name)
+            switch (((RadioButton)sender).Name)
             {
                 case "Encrypt":
                     isEncrypted = true;
@@ -66,25 +50,9 @@ namespace Cryptography.Views.Windows
                     break;
             }
         }
-        private void TextBox_OnlyNumber(object sender, TextCompositionEventArgs e)
-        {
-            if (!int.TryParse(e.Text, out int val))
-            {
-                e.Handled = true;
-            }
-        }
-        private void TextBox_NoSpace(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Space)
-            {
-                e.Handled = true;
-            }
-        }
         private void Method_Selected(object sender, RoutedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            switch (selectedItem.Name)
+            switch (((ComboBoxItem)((ComboBox)sender).SelectedItem).Name)
             {
                 case "One":
                     method = 1;
@@ -95,5 +63,9 @@ namespace Cryptography.Views.Windows
             }
         }
 
+        public void TextBox_NoSpace(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Space) e.Handled = true;
+        }
     }
 }

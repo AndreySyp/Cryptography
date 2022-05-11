@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cryptography.Models
 {
     internal class AlgorithmVigenere
     {
-        readonly string alphabet;
+        private readonly string alphabet;
 
-        private string RepeatKey(string str, int N)
+        public AlgorithmVigenere(string alphabet)
+        {
+            this.alphabet = alphabet;
+        }
+
+        private static string RepeatKey(string str, int N)
         {
             string outStr = str;
             while (outStr.Length < N)
@@ -39,12 +40,6 @@ namespace Cryptography.Models
             return outText;
         }
 
-
-        public AlgorithmVigenere(string alphabet)
-        {
-            this.alphabet = alphabet;
-        }
-
         public string Encrypt(string text, string key)
         {
             return Code(text, key, 1);
@@ -52,6 +47,14 @@ namespace Cryptography.Models
         public string Decrypt(string text, string key)
         {
             return Code(text, key, -1);
+        }
+        public string GenerateKey()
+        {
+            Random rnd = new();
+            System.Text.StringBuilder key = new();
+            for (int i = 0; i < rnd.Next(3, 10); i++)
+                key.Append(alphabet[rnd.Next(alphabet.Length)]);
+            return key.ToString();
         }
     }
 }

@@ -1,28 +1,15 @@
-﻿using Cryptography.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Cryptography.Infrastructure.Commands;
+using Cryptography.Models;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Cryptography.Views.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для Vigenere.xaml
-    /// </summary>
     public partial class Vigenere : Page
     {
-        string alphabet;
-        bool isEncrypted;
+        private string alphabet;
+        private bool isEncrypted;
 
         public Vigenere()
         {
@@ -33,15 +20,15 @@ namespace Cryptography.Views.Windows
         {
             AlgorithmVigenere v = new(alphabet);
 
-            OutputText.Text = isEncrypted
-                ? v.Encrypt(InputText.Text.ToString(), InputKey.Text.ToString())
-                : v.Decrypt(InputText.Text.ToString(), InputKey.Text.ToString());
+            string text = InputText.Text.ToString();
+            VerificationGenerationKey.GenerateKey(out string key, InputKey, v.GenerateKey, (string num) => { return true; });
+
+            OutputText.Text = isEncrypted ? v.Encrypt(text, key) : v.Decrypt(text, key);
         }
+
         private void Language_Selected(object sender, RoutedEventArgs e)
         {
-            ComboBox comboBox = (ComboBox)sender;
-            ComboBoxItem selectedItem = (ComboBoxItem)comboBox.SelectedItem;
-            switch (selectedItem.Name)
+            switch (((ComboBoxItem)((ComboBox)sender).SelectedItem).Name)
             {
                 case "Eng":
                     alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -53,8 +40,7 @@ namespace Cryptography.Views.Windows
         }
         private void Code_Checked(object sender, RoutedEventArgs e)
         {
-            RadioButton pressed = (RadioButton)sender;
-            switch (pressed.Name)
+            switch (((RadioButton)sender).Name)
             {
                 case "Encrypt":
                     isEncrypted = true;
@@ -64,19 +50,10 @@ namespace Cryptography.Views.Windows
                     break;
             }
         }
-        private void TextBox_OnlyNumber(object sender, TextCompositionEventArgs e)
+
+        public void TextBox_NoSpace(object sender, KeyEventArgs e)
         {
-            if (!int.TryParse(e.Text, out int val))
-            {
-                e.Handled = true;
-            }
-        }
-        private void TextBox_NoSpace(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Space)
-            {
-                e.Handled = true;
-            }
+            if (e.Key == Key.Space) e.Handled = true;
         }
     }
 }

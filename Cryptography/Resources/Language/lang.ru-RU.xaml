@@ -1,22 +1,40 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:v="clr-namespace:System;assembly=mscorlib">
-    <v:String x:Key="menu_Language">Язык</v:String>
     <v:String x:Key="menu_Program">Программа</v:String>
+    <v:String x:Key="menu_Language">Язык</v:String>
     <v:String x:Key="menu_Help">Помощь</v:String>
 
-    <v:String x:Key="slideMenu_Caesar">Шифр Цезаря</v:String>
     <v:String x:Key="slideMenu_Polybius">Квадрат Полибия</v:String>
+    <v:String x:Key="slideMenu_ElGamal">Схема Эль-Гамаля</v:String>
     <v:String x:Key="slideMenu_Vigenere">Шифр Виженера</v:String>
+    <v:String x:Key="slideMenu_Shamir">Протокол Шамира</v:String>
+    <v:String x:Key="slideMenu_Feistel">Сеть Фейстеля</v:String>
+    <v:String x:Key="slideMenu_Caesar">Шифр Цезаря</v:String>
 
-    <v:String x:Key="main_Input">Ввод:</v:String>
-    <v:String x:Key="main_Output">Вывод:</v:String>
-    <v:String x:Key="main_Key">Ключ:</v:String>
-    <v:String x:Key="main_Start">Старт</v:String>
-    <v:String x:Key="main_Methot_1">Метод 1</v:String>
-    <v:String x:Key="main_Methot_2">Метод 2</v:String>
-    <v:String x:Key="main_Encrypt">Зашифровать</v:String>
-    <v:String x:Key="main_Decrypt">Расшифровать</v:String>
-    <v:String x:Key="main_Eng">Английский</v:String>
-    <v:String x:Key="main_Ru">Русский</v:String>
+    <v:String x:Key="pageCode_Decrypt">Расшифровать</v:String>
+    <v:String x:Key="pageCode_Encrypt">Зашифровать</v:String>
+    <v:String x:Key="pageCode_Methot_1">Метод 1</v:String>
+    <v:String x:Key="pageCode_Methot_2">Метод 2</v:String>
+    <v:String x:Key="pageCode_Eng">Английский</v:String>
+    <v:String x:Key="pageCode_Rounds">Раунды</v:String>
+    <v:String x:Key="pageCode_Output">Вывод</v:String>
+    <v:String x:Key="pageCode_Start">Старт</v:String>
+    <v:String x:Key="pageCode_Input">Ввод</v:String>
+    <v:String x:Key="pageCode_Key">Ключ:</v:String>
+    <v:String x:Key="pageCode_Ru">Русский</v:String>
+
+    <v:String x:Key="pageCode_dA">dA:</v:String>
+    <v:String x:Key="pageCode_cA">cA:</v:String>
+    <v:String x:Key="pageCode_dB">dB:</v:String>
+    <v:String x:Key="pageCode_cB">cB:</v:String>
+    <v:String x:Key="pageCode_G">g:</v:String>
+    <v:String x:Key="pageCode_Y">y:</v:String>
+    <v:String x:Key="pageCode_X1">X1</v:String>
+    <v:String x:Key="pageCode_X2">X2</v:String>
+    <v:String x:Key="pageCode_X3">X3</v:String>
+    <v:String x:Key="pageCode_X4">X4</v:String>
+    <v:String x:Key="pageCode_X">x:</v:String>
+    <v:String x:Key="pageCode_P">p:</v:String>
+    <v:String x:Key="pageCode_A">a:</v:String>
 </ResourceDictionary>

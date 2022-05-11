@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cryptography.Models
 {
@@ -10,24 +6,20 @@ namespace Cryptography.Models
     {
         private readonly string alphabet;
 
-        private string Code(string text, int key)
-        {
-            string outText = "";
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                int index = alphabet.IndexOf(text[i]);
-                if (index == -1) outText += text[i];
-                else outText += alphabet[(alphabet.Length + index + key) % alphabet.Length];
-            }
-
-            return outText;
-        }
-
-
         public AlgorithmCasaer(string alphabet)
         {
             this.alphabet = alphabet;
+        }
+
+        private string Code(string text, int key)
+        {
+            System.Text.StringBuilder outText = new(text);
+            for (int i = 0; i < text.Length; i++)
+            {
+                int index = alphabet.IndexOf(text[i]);
+                if (index != -1) outText[i] = alphabet[(alphabet.Length + index + key) % alphabet.Length];
+            }
+            return outText.ToString();
         }
 
         public string Encrypt(string text, int key)
@@ -37,6 +29,11 @@ namespace Cryptography.Models
         public string Decrypt(string text, int key)
         {
             return Code(text.ToLower(), -key);
+        }
+        public long GenerateKey()
+        {
+            Random rnd = new();
+            return rnd.Next(-alphabet.Length, alphabet.Length);
         }
     }
 }

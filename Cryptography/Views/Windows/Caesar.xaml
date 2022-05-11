@@ -4,37 +4,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       mc:Ignorable="d" 
-      
-      xmlns:fa5="http://schemas.fontawesome.com/icons/"
-      xmlns:local="clr-namespace:Cryptography.Views.Windows"
-      d:DesignHeight="425" d:DesignWidth="550"
-      Title="Caesar">
+      d:DesignHeight="425" d:DesignWidth="550">
 
     <Grid>
         <StackPanel Orientation="Vertical" Margin="2" >
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{DynamicResource main_Input}"/>
-                <TextBox x:Name="InputText" Height="60" Width="510" Background="Transparent" BorderThickness="0.5" BorderBrush="Gray"/>
+            <StackPanel Style="{StaticResource PagePanel}">
+                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource pageCode_Input}" />
+                <TextBox x:Name="InputText" Style="{StaticResource TextBox}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
-                <ComboBox SelectionChanged="Language_Selected" Margin="2,0,5,0" VerticalAlignment="Center" Width="100">
-                    <ComboBoxItem Name="Eng" Content="{DynamicResource main_Eng}" IsSelected="True"/>
-                    <ComboBoxItem Name="Ru" Content="{DynamicResource main_Ru}"/>
+            <StackPanel Style="{StaticResource PagePanel}">
+                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource pageCode_Output}"/>
+                <TextBox x:Name="OutputText" Style="{StaticResource TextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource PagePanel}">
+                <ComboBox SelectionChanged="Language_Selected" Margin="2,0,60,0" VerticalAlignment="Center" Width="100">
+                    <ComboBoxItem Name="Eng" Content="{DynamicResource pageCode_Eng}" IsSelected="True"/>
+                    <ComboBoxItem Name="Ru" Content="{DynamicResource pageCode_Ru}"/>
                 </ComboBox>
-                <StackPanel Margin="2,0,5,0">
-                    <RadioButton Name="Encrypt" Content="{DynamicResource main_Encrypt}" Checked="Code_Checked" IsChecked="True" />
-                    <RadioButton Name="Decrypt" Content="{DynamicResource main_Decrypt}" Checked="Code_Checked" />
+                <StackPanel Margin="2,0,60,0">
+                    <RadioButton Name="Encrypt" Content="{DynamicResource pageCode_Encrypt}" Checked="Code_Checked" IsChecked="True" />
+                    <RadioButton Name="Decrypt" Content="{DynamicResource pageCode_Decrypt}" Checked="Code_Checked" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="2,0,5,0">
-                    <TextBlock Text="{DynamicResource main_Key}" />
-                    <TextBox x:Name="InputKey" PreviewTextInput="TextBox_OnlyNumber" PreviewKeyDown="TextBox_NoSpace" 
-                         Height="20" Width="80" Background="Transparent" BorderThickness="0.5" BorderBrush="Gray"/>
+                <StackPanel Orientation="Horizontal" Margin="2,0,60,0">
+                    <TextBlock Text="{DynamicResource pageCode_Key}" />
+                    <TextBox x:Name="InputKey" PreviewTextInput="TextBox_OnlyNumber" PreviewKeyDown="TextBox_NoSpace"  Style="{StaticResource KeyBox}"/>
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="In" Click="In_Click" Content="{DynamicResource main_Start}" Height="30" Width="80" HorizontalAlignment="Left" />
-            <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
-                <TextBlock Text="{DynamicResource main_Output}"/>
-                <TextBlock x:Name="OutputText" Height="60" Width="500" />
+            <StackPanel Style="{StaticResource PagePanel}">
+                <Button x:Name="In" Click="In_Click" Content="{DynamicResource pageCode_Start}" Style="{StaticResource StartButton}"/>
             </StackPanel>
         </StackPanel>
     </Grid>

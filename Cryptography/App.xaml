@@ -6,8 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="SlideMenu.xaml"/>
-                <ResourceDictionary Source="WindowButton.xaml"/>
+                <ResourceDictionary Source="Resources/Style/SlideMenu.xaml"/>
+                <ResourceDictionary Source="Resources/Style/BaseStyle.xaml"/>
                 <ResourceDictionary Source="Resources/Language/lang.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
