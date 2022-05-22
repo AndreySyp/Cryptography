@@ -23,6 +23,7 @@ namespace Cryptography.ViewModels
         private readonly Page ElGamal = new ElGamal();
         private readonly Page Caesar = new Caesar();
         private readonly Page Shamir = new Shamir();
+        private readonly Page RSA = new RSA();
 
         public ICommand MenuPolybiusSquare_Click => new RelayCommand(() => CurrentPage = PolybiusSquare);
         public ICommand MenuCaesar_Click => new RelayCommand(() => CurrentPage = Caesar);
@@ -30,6 +31,7 @@ namespace Cryptography.ViewModels
         public ICommand Feistel_Click => new RelayCommand(() => CurrentPage = Feistel);
         public ICommand ElGamal_Click => new RelayCommand(() => CurrentPage = ElGamal);
         public ICommand Shamir_Click => new RelayCommand(() => CurrentPage = Shamir);
+        public ICommand RSA_Click => new RelayCommand(() => CurrentPage = RSA);
 
         #endregion
 

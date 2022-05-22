@@ -1,0 +1,56 @@
+﻿<Page x:Class="Cryptography.Views.Windows.RSA"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      mc:Ignorable="d" 
+      d:DesignHeight="425" d:DesignWidth="550">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="2" >
+            <StackPanel Style="{StaticResource PagePanel}" >
+                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource pageCode_Input}" />
+                <TextBox x:Name="InputText" Style="{StaticResource TextBox}"/>
+            </StackPanel>
+            <StackPanel Style="{StaticResource PagePanel}" >
+                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource pageCode_Output}"/>
+                <TextBox x:Name="OutputText" Style="{StaticResource TextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource PagePanel}">
+                <StackPanel Orientation="Horizontal" Margin="2,0,15,0">
+                    <TextBlock Text="{DynamicResource pageCode_P}" />
+                    <TextBox x:Name="InputP" PreviewTextInput="TextBox_OnlyNumber" PreviewKeyDown="TextBox_NoSpace" Style="{StaticResource KeyBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="2,0,15,0">
+                    <TextBlock Text="{DynamicResource pageCode_Q}" />
+                    <TextBox x:Name="InputQ" PreviewTextInput="TextBox_OnlyNumber" PreviewKeyDown="TextBox_NoSpace" Style="{StaticResource KeyBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="2,0,15,0">
+                    <TextBlock Text="{DynamicResource pageCode_D}" />
+                    <TextBox x:Name="InputD" PreviewTextInput="TextBox_OnlyNumber" PreviewKeyDown="TextBox_NoSpace" Style="{StaticResource KeyBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="2,0,15,0">
+                    <TextBlock Text="{DynamicResource pageCode_E}" />
+                    <TextBox x:Name="InputE" PreviewTextInput="TextBox_OnlyNumber" PreviewKeyDown="TextBox_NoSpace" Style="{StaticResource KeyBox}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource PagePanel}">
+                <StackPanel Orientation="Horizontal" Margin="2,0,15,0">
+                    <TextBlock Text="{DynamicResource pageCode_N}" />
+                    <TextBox x:Name="OutputN" IsReadOnly="True" Style="{StaticResource KeyBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="2,0,15,0">
+                    <TextBlock Text="{DynamicResource pageCode_M}" />
+                    <TextBox x:Name="OutputM" IsReadOnly="True" Style="{StaticResource KeyBox}"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Style="{StaticResource PagePanel}">
+                <StackPanel Margin="2,0,15,0">
+                    <RadioButton Name="Encrypt" Content="{DynamicResource pageCode_Encrypt}" Checked="Code_Checked" IsChecked="True" />
+                    <RadioButton Name="Decrypt" Content="{DynamicResource pageCode_Decrypt}" Checked="Code_Checked" />
+                </StackPanel>
+                <Button x:Name="In" Click="In_Click" Content="{DynamicResource pageCode_Start}" Style="{StaticResource StartButton}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

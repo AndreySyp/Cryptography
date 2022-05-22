@@ -11,6 +11,7 @@
     <v:String x:Key="slideMenu_Feistel">Feistel cipher</v:String>
     <v:String x:Key="slideMenu_Shamir">Shamir Protocol</v:String>
     <v:String x:Key="slideMenu_Caesar">Caesar cipher</v:String>
+    <v:String x:Key="slideMenu_RSA">RSA</v:String>
 
     <v:String x:Key="pageCode_Methot_1">Methot 1</v:String>
     <v:String x:Key="pageCode_Methot_2">Methot 2</v:String>
@@ -37,4 +38,9 @@
     <v:String x:Key="pageCode_X4">X4</v:String>
     <v:String x:Key="pageCode_P">p:</v:String>
     <v:String x:Key="pageCode_A">a:</v:String>
+    <v:String x:Key="pageCode_Q">q:</v:String>
+    <v:String x:Key="pageCode_D">d:</v:String>
+    <v:String x:Key="pageCode_E">e:</v:String>
+    <v:String x:Key="pageCode_M">m:</v:String>
+    <v:String x:Key="pageCode_N">n:</v:String>
 </ResourceDictionary>

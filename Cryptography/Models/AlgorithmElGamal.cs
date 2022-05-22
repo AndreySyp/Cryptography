@@ -16,7 +16,7 @@ namespace Cryptography.Models
 
         public string Encrypt(string text, out long a)
         {
-            int[] intArr = new int[text.Length];
+            long[] intArr = new long[text.Length];
             Random rnd = new();
             uint k;
 
@@ -30,15 +30,15 @@ namespace Cryptography.Models
             {
                 long t1 = AdditionalFunctions.PMC(y, k, p);
                 long t2 = AdditionalFunctions.PMC(t1 * text[i], 1, p);
-                intArr[i] = (char)t2;
+                intArr[i] = t2;
             }
 
             return string.Join(" ", Array.ConvertAll(intArr, x => x.ToString()));
         }
         public string Decrypt(string text, long a)
         {
-            int[] intArr;
-            try { intArr = text.Split(' ').Select(x => int.Parse(x)).ToArray(); }
+            long[] intArr;
+            try { intArr = text.Split(' ').Select(x => long.Parse(x)).ToArray(); }
             catch (Exception) { return ""; }
 
             char[] charArr = new char[intArr.Length];

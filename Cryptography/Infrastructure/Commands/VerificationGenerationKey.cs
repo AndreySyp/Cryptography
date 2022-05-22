@@ -9,6 +9,7 @@ namespace Cryptography.Infrastructure.Commands
         public delegate string RuleGenerateKeyNullParamStr();
         public delegate string[] RuleGenerateKeyNullParamStrArr();
         public delegate long RuleGenerateKeyOneParam(long num);
+        public delegate void RuleGenerateKeyThreeParam(long num1,ref long num2, ref long num3);
 
         public delegate bool СonditionKeyOneParam(long num);
         public delegate bool СonditionKeyOneParamStr(string num);
@@ -58,6 +59,21 @@ namespace Cryptography.Infrastructure.Commands
             //        tb.Text += item + "\n";
             //}
             else strs = tb.Text.Split('\n');
+        }
+        public static void GenerateKey(long m, out long d, out long e, TextBox tb1, TextBox tb2, RuleGenerateKeyThreeParam rgk)
+        {
+            d = 0; e = 0;
+            if (tb1.Text.ToString() == "" || tb2.Text.ToString() == "")
+            {
+                rgk(m, ref d, ref e);
+                tb1.Text = d.ToString();
+                tb2.Text = e.ToString();
+            }
+            else
+            {
+                d = Convert.ToInt64(tb1.Text.ToString());
+                e = Convert.ToInt64(tb2.Text.ToString());
+            }
         }
 
         public static void GenerateKey(long p, out long num, TextBox tb, RuleGenerateKeyOneParam rgk, СonditionKeyTwoParam ck)

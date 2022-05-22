@@ -11,6 +11,7 @@
     <v:String x:Key="slideMenu_Shamir">Протокол Шамира</v:String>
     <v:String x:Key="slideMenu_Feistel">Сеть Фейстеля</v:String>
     <v:String x:Key="slideMenu_Caesar">Шифр Цезаря</v:String>
+    <v:String x:Key="slideMenu_RSA">RSA</v:String>
 
     <v:String x:Key="pageCode_Decrypt">Расшифровать</v:String>
     <v:String x:Key="pageCode_Encrypt">Зашифровать</v:String>
@@ -37,4 +38,9 @@
     <v:String x:Key="pageCode_X">x:</v:String>
     <v:String x:Key="pageCode_P">p:</v:String>
     <v:String x:Key="pageCode_A">a:</v:String>
+    <v:String x:Key="pageCode_Q">q:</v:String>
+    <v:String x:Key="pageCode_D">d:</v:String>
+    <v:String x:Key="pageCode_E">e:</v:String>
+    <v:String x:Key="pageCode_M">m:</v:String>
+    <v:String x:Key="pageCode_N">n:</v:String>
 </ResourceDictionary>

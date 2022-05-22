@@ -69,6 +69,7 @@
                     <Button Template="{StaticResource ResourceKey=SlideMenuBtn}" Content="{DynamicResource slideMenu_Feistel}" Command="{Binding Feistel_Click}"/>
                     <Button Template="{StaticResource ResourceKey=SlideMenuBtn}" Content="{DynamicResource slideMenu_ElGamal}" Command="{Binding ElGamal_Click}"/>
                     <Button Template="{StaticResource ResourceKey=SlideMenuBtn}" Content="{DynamicResource slideMenu_Shamir}" Command="{Binding Shamir_Click}"/>
+                    <Button Template="{StaticResource ResourceKey=SlideMenuBtn}" Content="{DynamicResource slideMenu_RSA}" Command="{Binding RSA_Click}"/>
 
                 </StackPanel>
             </Border>
